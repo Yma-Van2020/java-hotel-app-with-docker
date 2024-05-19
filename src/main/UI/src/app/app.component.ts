@@ -18,6 +18,10 @@ export class AppComponent implements OnInit{
   constructor(private httpClient:HttpClient){}
 
   private baseURL:string='http://localhost:8080';
+  private welcomeEndpointEn: string = '/welcome/en'; // Endpoint for English welcome message
+  private welcomeEndpointFr: string = '/welcome/fr'; // Endpoint for French welcome message
+  public welcomeMessageEn: string = ''; // Welcome message for English
+  public welcomeMessageFr: string = ''; // Welcome message for French
 
   private getUrl:string = this.baseURL + '/room/reservation/v1/';
   private postUrl:string = this.baseURL + '/room/reservation/v1';
@@ -27,6 +31,7 @@ export class AppComponent implements OnInit{
   request!:ReserveRoomRequest;
   currentCheckInVal!:string;
   currentCheckOutVal!:string;
+
 
     ngOnInit(){
       this.roomsearch= new FormGroup({
@@ -44,13 +49,14 @@ export class AppComponent implements OnInit{
       this.currentCheckInVal = x.checkin;
       this.currentCheckOutVal = x.checkout;
     });
+
+    this.getWelcomeMessages();
   }
 
     onSubmit({value,valid}:{value:Roomsearch,valid:boolean}){
       this.getAll().subscribe(
 
         rooms => {console.log(Object.values(rooms)[0]);this.rooms=<Room[]>Object.values(rooms)[0]; }
-
 
       );
     }
@@ -81,6 +87,24 @@ export class AppComponent implements OnInit{
 
 
        return this.httpClient.get(this.baseURL + '/room/reservation/v1?checkin='+ this.currentCheckInVal + '&checkout='+this.currentCheckOutVal, {responseType: 'json'});
+    }
+
+    getWelcomeMessages() {
+      // Fetch English welcome message
+      this.httpClient.get(this.baseURL + this.welcomeEndpointEn, { responseType: 'text' }).subscribe(
+        (response: string) => {
+          this.welcomeMessageEn = response;
+          console.log('English welcome message:', this.welcomeMessageEn); // Debug statement
+        }
+      );
+
+      // Fetch French welcome message
+      this.httpClient.get(this.baseURL + this.welcomeEndpointFr, { responseType: 'text' }).subscribe(
+        (response: string) => {
+          this.welcomeMessageFr = response;
+          console.log('French welcome message:', this.welcomeMessageFr); // Debug statement
+        }
+      );
     }
 
   }
