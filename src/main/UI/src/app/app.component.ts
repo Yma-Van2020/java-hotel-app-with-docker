@@ -94,7 +94,6 @@ export class AppComponent implements OnInit{
       this.httpClient.get(this.baseURL + this.welcomeEndpointEn, { responseType: 'text' }).subscribe(
         (response: string) => {
           this.welcomeMessageEn = response;
-          console.log('English welcome message:', this.welcomeMessageEn); // Debug statement
         }
       );
 
@@ -102,7 +101,6 @@ export class AppComponent implements OnInit{
       this.httpClient.get(this.baseURL + this.welcomeEndpointFr, { responseType: 'text' }).subscribe(
         (response: string) => {
           this.welcomeMessageFr = response;
-          console.log('French welcome message:', this.welcomeMessageFr); // Debug statement
         }
       );
     }
