@@ -1,29 +1,42 @@
-<strong> **DO NOT DISTRIBUTE OR PUBLICLY POST SOLUTIONS TO THESE LABS. MAKE ALL FORKS OF THIS REPOSITORY WITH SOLUTION CODE PRIVATE. PLEASE REFER TO THE STUDENT CODE OF CONDUCT AND ETHICAL EXPECTATIONS FOR COLLEGE OF INFORMATION TECHNOLOGY STUDENTS FOR SPECIFICS. ** </strong>
+# Landon Hotel Scheduling Application
 
-# WESTERN GOVERNOR UNIVERSITY 
-## D387 – ADVANCED JAVA
-Welcome to Advanced Java! This is an opportunity for students to write multithreaded object-oriented code using Java frameworks and determine how to deploy software applications using cloud services.
+Welcome to the Landon Hotel Scheduling Application! This project has been modified to meet new requirements under new management. Below is a guide to understanding the implemented features and how to use the application.
 
-FOR SPECIFIC TASK INSTRUCTIONS AND REQUIREMENTS FOR THIS ASSESSMENT, PLEASE REFER TO THE COURSE PAGE.
-## BASIC INSTRUCTIONS
-For this assessment, you will modify a Spring application with a Java back end and an Angular front end to include multithreaded language translation, a message at different time zones, and currency exchange. Then, build a Docker image of the current multithreaded Spring application and containerize it using the supporting documents provided in this task.
+## Implemented Requirements
 
+### A. GitLab Repository Setup
+- The project is hosted on GitLab. [Link to GitLab Repository](#)
+- Branch history and commit messages are available upon request.
 
-## SUPPLEMENTAL RESOURCES 
-1.	How to clone a project to IntelliJ using Git?
+### B. Modification of Landon Hotel Application
 
-> Ensure that you have Git installed on your system and that IntelliJ is installed using [Toolbox](https://www.jetbrains.com/toolbox-app/). Make sure that you are using version 2022.3.2. Once this has been confirmed, click the clone button and use the 'IntelliJ IDEA (HTTPS)' button. This will open IntelliJ with a prompt to clone the proejct. Save it in a safe location for the directory and press clone. IntelliJ will prompt you for your credentials. Enter in your WGU Credentials and the project will be cloned onto your local machine.  
+#### Localization and Internationalization
+- Resource bundles for English and French have been created.
+- Welcome messages are displayed in both languages using separate threads.
 
-2. How to create a branch and start Development?
+#### Currency Display
+- Front end now displays reservation prices in USD, CAD, and EUR on separate lines.
 
-- GitLab method
-> Press the '+' button located near your branch name. In the dropdown list, press the 'New branch' button. This will allow you to create a name for your branch. Once the branch has been named, you can select 'Create Branch' to push the branch to your repository.
+#### Time Display for Online Presentation
+- Java method to convert times between ET, MT, and UTC has been implemented.
+- Online presentation times are displayed in ET, MT, and UTC.
 
-- IntelliJ method
-> In IntelliJ, Go to the 'Git' button on the top toolbar. Select the new branch option and create a name for the branch. Make sure checkout branch is selected and press create. You can now add a commit message and push the new branch to the local repo.
+### C. Dockerfile Creation and Deployment Strategy
 
-## SUPPORT
-If you need additional support, please navigate to the course page and reach out to your course instructor.
-## FUTURE USE
-Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
+#### Dockerfile Creation
+- Dockerfile has been created to include all modifications.
+- Dockerfile is available in the project root directory.
 
+#### Dockerfile Testing
+- Docker image of the Spring application has been successfully created.
+- Application has been tested in a Docker container.
+
+#### Cloud Deployment Strategy
+- A strategy for deploying the application to the cloud has been outlined.
+
+## Getting Started
+To run the application locally, follow these steps:
+1. Clone the repository to your local machine.
+2. Open the project in your preferred IDE (e.g., IntelliJ IDEA).
+3. Build and run the Spring application.
+4. Navigate to the Angular front end and launch the application in your web browser.
