@@ -23,6 +23,10 @@ export class AppComponent implements OnInit{
   public welcomeMessageEn: string = ''; // Welcome message for English
   public welcomeMessageFr: string = ''; // Welcome message for French
 
+  public convertedUTC: string = '';
+  public convertedMT: string = '';
+  public convertedET: string = '';
+
   private getUrl:string = this.baseURL + '/room/reservation/v1/';
   private postUrl:string = this.baseURL + '/room/reservation/v1';
   public submitted!:boolean;
@@ -51,6 +55,7 @@ export class AppComponent implements OnInit{
     });
 
     this.getWelcomeMessages();
+    this.getConvertedTime();
   }
 
     onSubmit({value,valid}:{value:Roomsearch,valid:boolean}){
@@ -101,6 +106,16 @@ export class AppComponent implements OnInit{
       this.httpClient.get(this.baseURL + this.welcomeEndpointFr, { responseType: 'text' }).subscribe(
         (response: string) => {
           this.welcomeMessageFr = response;
+        }
+      );
+    }
+
+    getConvertedTime() {
+      this.httpClient.get<string[]>(this.baseURL + '/time/convert', { responseType: 'json' }).subscribe(
+        (response: string[]) => {
+          this.convertedUTC = response[0];
+          this.convertedET = response[1];
+          this.convertedMT = response[2];
         }
       );
     }

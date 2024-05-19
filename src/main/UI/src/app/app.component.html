@@ -28,7 +28,14 @@
   <div class="scene" id="welcome">
     <article class="content">
 
-
+      <div class="col-12 mb-5">
+        <h1>Live Online Presentation Times</h1>
+        <ul>
+          <li><strong>Join us at the London Hotel at:</strong> {{ convertedUTC }}</li>
+          <li><strong>Eastern Time (ET):</strong> {{ convertedET }}</li>
+          <li><strong>Mountain Time (MT):</strong> {{ convertedMT }}</li>
+        </ul>
+      </div>
 
       <div class="row">
         <div class=""col-12>
@@ -58,7 +65,7 @@
 
               <div class="form-group">
                 <div class="col-offset-2 col-12">
-                  <button type="submit" class="btn btn-primary btn-lg"> Submit</button>
+                  <button type="submit" class="btn btn-primary btn-lg mt-5"> Submit</button>
                 </div>
               </div>
               </form>

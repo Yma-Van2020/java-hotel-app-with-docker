@@ -5,6 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.InputStream;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -31,4 +35,28 @@ public class D387SampleCodeApplication {
 			return null;
 		}
 	}
+
+	public static String[] convertAndDisplayTimeZones(LocalDateTime dateTime) {
+		ZoneId zEastern = ZoneId.of("America/New_York");
+		ZoneId zMountain = ZoneId.of("America/Denver");
+		ZoneId zoneId = ZoneId.systemDefault();
+
+		try {
+			ZonedDateTime zonedDateTime = dateTime.atZone(zoneId);
+			ZonedDateTime zonedDateTimeEastern = zonedDateTime.withZoneSameInstant(zEastern);
+			ZonedDateTime zonedDateTimeMountain = zonedDateTime.withZoneSameInstant(zMountain);
+
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm a");
+
+			String localTime = zonedDateTime.format(formatter);
+			String easternTime = zonedDateTimeEastern.format(formatter);
+			String mountainTime = zonedDateTimeMountain.format(formatter);
+
+			return new String[]{localTime, easternTime, mountainTime};
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 }
