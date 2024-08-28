@@ -4,10 +4,6 @@ Welcome to the Landon Hotel Scheduling Application! This project has been modifi
 
 ## Implemented Requirements
 
-### A. GitLab Repository Setup
-- The project is hosted on GitLab. [here](https://gitlab.com/wgu-gitlab-environment/student-repos/yma14/d387-advanced-java.git)
-- Branch history and commit messages are available upon request.
-
 ### B. Modification of Landon Hotel Application
 
 #### Localization and Internationalization
